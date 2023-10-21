@@ -1,0 +1,17 @@
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.BLL.deps.json
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.BLL.dll
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.BLL.pdb
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.Common.dll
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.DAL.dll
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.Common.pdb
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.DAL.pdb
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.csproj.AssemblyReference.cache
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.AssemblyInfoInputs.cache
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.AssemblyInfo.cs
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.csproj.CoreCompileInputs.cache
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.csproj.CopyComplete
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.dll
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\refint\QLBH.BLL.dll
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.pdb
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\ref\QLBH.BLL.dll

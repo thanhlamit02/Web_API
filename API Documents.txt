@@ -1,0 +1,21 @@
+*** WEB API | QUẢN LÝ BÁN HÀNG ***
+1. Khởi tạo project
+- Tạo QLBH.Web: ASP .Net Core Web API
+- Tạo 3 class library: QLBH.BLL, QLBH.Common, QLBH.DAL
+- Tạo giao tiếp giữ các projects:
+	+ .Web: .Common + .BLL
+	+ .DAL: .Common 
+	+ .BLL: .Common + .DAL
+2. Các bước thực hiện từng project
+- Cài database Northwind trên Sql Server
+- Tạo database bằng entity framework cho 4 projects: .Web, .DAL, .BLL, và .Common:
+	+ Install-Package Microsoft.EntityFrameworkCore -version 5.0.10
+	+ Install-Package Microsoft.EntityFrameworkCore.SqlServer -version 5.0.10
+	+ Install-Package Microsoft.EntityFrameworkCore.Tools -version 5.0.10
+	+ Scaffold-DbContext "Data Source=.; Initial Catalog= Northwind;Integrated Security=True" 			Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force
+- Lớp .Common để dùng truyền dữ liệu giao tiếp chung
+- Tạo interface IGenericRep để dùng lại các phương thức đã được định nghĩa
+
+
+
+*** WEB API | QUẢN LÝ BÁN HÀNG ***
