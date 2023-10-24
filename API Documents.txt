@@ -15,7 +15,7 @@
 	+ Scaffold-DbContext "Data Source=.; Initial Catalog= Northwind;Integrated Security=True" 			Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force
 - Lớp .Common để dùng truyền dữ liệu giao tiếp chung
 - Tạo interface IGenericRep để dùng lại các phương thức đã được định nghĩa
-
-
+- Vào nuget pkg: cài đặt swagger gen & UI
+- Add Swagger vào trong file Startup.cs
 
 *** WEB API | QUẢN LÝ BÁN HÀNG ***

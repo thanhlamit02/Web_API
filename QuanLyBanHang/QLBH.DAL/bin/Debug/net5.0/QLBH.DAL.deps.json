@@ -1069,6 +1069,10 @@
         }
       },
       "QLBH.Common/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10"
+        },
         "runtime": {
           "QLBH.Common.dll": {}
         }

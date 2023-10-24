@@ -15,3 +15,6 @@ E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\D
 E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\refint\QLBH.BLL.dll
 E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.pdb
 E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\ref\QLBH.BLL.dll
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.BLL.runtimeconfig.json
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\bin\Debug\net5.0\QLBH.BLL.runtimeconfig.dev.json
+E:\Documents\Giao trinh hoc online\4th year\Web_API\QuanLyBanHang\QLBH.BLL\obj\Debug\net5.0\QLBH.BLL.genruntimeconfig.cache

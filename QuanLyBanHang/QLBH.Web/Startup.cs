@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -28,10 +28,54 @@ namespace QLBH.Web
         {
 
             services.AddControllers();
+
+            #region -- Swagger --
+            var inf1 = new OpenApiInfo
+            {
+                Title = "API v1.0",
+                Version = "v1",
+                Description = "Swashbuckle",
+                TermsOfService = new Uri("https://appointvn.com"),
+                Contact = new OpenApiContact
+                {
+                    Name = "lamnt_haui",
+                    Email = "thanhlam02.haui.nd@gmail.com",
+                },
+                License = new OpenApiLicense
+                {
+                    Name = "Apache 2.0",
+                    Url = new Uri("http://www.apache.org/licenses/LICENSE-2.0.html"),
+                }
+            };
+
+            var inf2 = new OpenApiInfo
+            {
+                Title = "API v2.0",
+                Version = "v2",
+                Description = "Swashbuckle",
+                TermsOfService = new Uri("https://appointvn.com"),
+                Contact = new OpenApiContact
+                {
+                    Name = "lamnt_haui",
+                    Email = "thanhlam02.haui.nd@gmail.com",
+                },
+                License = new OpenApiLicense
+                {
+                    Name = "Apache 2.0",
+                    Url = new Uri("http://www.apache.org/licenses/LICENSE-2.0.html"),
+                }
+            };
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "QLBH.Web", Version = "v1" });
+                c.SwaggerDoc("v1", inf1);
+                c.SwaggerDoc("v2", inf2); 
             });
+            #endregion
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,9 +84,18 @@ namespace QLBH.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "QLBH.Web v1"));
             }
+
+            #region -- Swagger --
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1.0");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "API v2.0");
+            });
+            #endregion
+
+            app.UseCors(p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()); // Thêm dòng lệnh mới
 
             app.UseHttpsRedirection();
 
