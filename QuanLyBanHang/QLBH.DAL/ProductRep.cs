@@ -53,6 +53,54 @@ namespace QLBH.DAL
             return res;
         }
 
+        public SingleRsp UpdateProduct (Product product)
+        {
+            var res = new SingleRsp();
+            using (var context = new NorthwindContext())
+            {
+                using (var tran = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var p = context.Products.Update(product);
+                        context.SaveChanges();
+                        tran.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        res.SetError(ex.StackTrace);
+                    }
+                }
+            }
+            return res;
+        }
+
+        /*
+        public SingleRsp DeleteProduct(Product product)
+        {
+            var res = new SingleRsp();
+            using (var context = new NorthwindContext())
+            {
+                using (var tran = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var p = context.Products.Remove(product);
+                        context.SaveChanges();
+                        tran.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        tran.Rollback();
+                        res.SetError(ex.StackTrace);
+                    }
+                }
+            }
+            return res;
+        }
+        */
+
         public List<Product> SearchProduct(string keyword)
         {
             return All.Where(x => x.ProductName.Contains(keyword)).ToList();

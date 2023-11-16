@@ -10,17 +10,25 @@ namespace QLBH.Web.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private CategorySvc categorySvc;
+        private readonly CategorySvc categorySvc;
         public CategoryController() 
         {
             categorySvc = new CategorySvc();
         }
 
-        [HttpPost("Get_by_id")]
+        [HttpPost("Get-by-id")]
         public IActionResult GetCategoryById([FromBody] SimpleReq simpleReq)
         {
             var res = new SingleRsp();
             res = categorySvc.Read(simpleReq.Id);
+            return Ok(res);
+        }
+
+        [HttpPost("Get-all")]
+        public IActionResult getAllCategories()
+        {
+            var res = new SingleRsp();
+            res.Data = categorySvc.All;
             return Ok(res);
         }
     }

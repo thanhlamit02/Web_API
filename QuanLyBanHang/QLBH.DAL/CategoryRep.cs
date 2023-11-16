@@ -14,11 +14,23 @@ namespace QLBH.DAL
         {
 
         }
-
+        /*
         public override Category Read(int id)
         {
             var res = All.FirstOrDefault(c => c.CategoryId == id);
             return res;
+        }
+        */
+        public override Category Read(int id)
+        {
+            return base.Read(id);
+        }
+
+        public int Remove(int id) 
+        {
+            var m = base.All.First(i => i.CategoryId == id);
+            m = base.Delete(m);
+            return m.CategoryId;
         }
     }
 }

@@ -13,26 +13,26 @@ namespace QLBH.BLL
 {
     public class ProductSvc : GenericSvc<ProductRep, Product>
     {
-        private ProductRep productRep;
-        public ProductSvc() 
-        {
-            productRep = new ProductRep();
-        }
+        ProductRep req = new ProductRep();
 
         #region -- Overrides --
+
         public override SingleRsp Read(int id)
         {
             var res = new SingleRsp();
+
             var m = _rep.Read(id);
             res.Data = m;
+
             return res;
         }
 
         public override SingleRsp Update(Product m)
         {
             var res = new SingleRsp();
-            var m1 = m.ProductId > 0 ? _rep.Read(m.ProductId) : _rep.Read(m.ProductName);
-            if (m1 == null) 
+
+            var m1 = m.CategoryId > 0 ? _rep.Read(m.ProductId) : _rep.Read(m.ProductId);
+            if (m1 == null)
             {
                 res.SetError("EZ103", "No data.");
             }
@@ -41,12 +41,39 @@ namespace QLBH.BLL
                 res = base.Update(m);
                 res.Data = m;
             }
+
             return res;
         }
-
         #endregion
 
         #region -- Methods --
+
+
+        public ProductSvc() { }
+
+
+
+        public object SearchProduct(SearchProductReq searchProductReq)
+        {
+            var products = All.Where(x => x.ProductName.Contains(searchProductReq.Keyword));
+            var offset = (searchProductReq.Page - 1) * searchProductReq.Size;
+            var total = products.Count();
+            int totalPage = (total % searchProductReq.Size) == 0 ? (int)(total / searchProductReq.Size) :
+                (int)(1 + (total / searchProductReq.Size));
+            var data = products.OrderBy(x => x.ProductName).Skip(offset).Take(searchProductReq.Size).ToList();
+            var res = new
+            {
+                Data = data,
+                TotalRecord = total,
+                TotalPages = totalPage,
+                Page = searchProductReq.Page,
+                Size = searchProductReq.Size
+
+            };
+
+            return res;
+        }
+
         public SingleRsp CreateProduct(ProductReq productReq)
         {
             var res = new SingleRsp();
@@ -55,30 +82,35 @@ namespace QLBH.BLL
             product.ProductName = productReq.ProductName;
             product.UnitPrice = productReq.UnitPrice;
             product.UnitsInStock = productReq.UnitsInStock;
-            res = productRep.CreateProduct(product);
+            res = req.CreateProduct(product);
             return res;
         }
 
-        public SingleRsp SearchProduct(SearchProductReq s)
+        public SingleRsp UpdateProduct(ProductReq productReq)
         {
             var res = new SingleRsp();
-            // Lấy danh sách sản phẩm theo từ khóa
-            var products = productRep.SearchProduct(s.Keyword);
-            // Xử lý phân trang
-            int pCount, totalPages, offset;
-            offset = s.Size * (s.Page - 1);
-            pCount = products.Count;
-            totalPages = (pCount % s.Size) == 0 ? pCount / s.Size : 1 + (pCount / s.Size);
-            var obj = new
-            {
-                Data = products.Skip(offset).Take(s.Size).ToList(),
-                Page = s.Page,
-                Size = s.Size
-            };
-
-            res.Data = obj;
+            Product product = new Product();
+            product.ProductId = productReq.ProductId;
+            product.ProductName = productReq.ProductName;
+            product.UnitPrice = productReq.UnitPrice;
+            product.UnitsInStock = productReq.UnitsInStock;
+            res = req.UpdateProduct(product);
             return res;
         }
+
+        /*
+        public SingleRsp DeleteProduct(ProductReq productReq)
+        {
+            var res = new SingleRsp();
+            Product product = new Product();
+            product.ProductId = productReq.ProductId;
+            product.ProductName = productReq.ProductName;
+            product.UnitPrice = productReq.UnitPrice;
+            product.UnitsInStock = productReq.UnitsInStock;
+            res = req.DeleteProduct(product);
+            return res;
+        }
+        */
         #endregion
     }
 }
